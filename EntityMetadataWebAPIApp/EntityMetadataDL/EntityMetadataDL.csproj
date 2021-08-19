@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CustomException\CustomException.csproj" />
+    <ProjectReference Include="..\DataLayerSQL\DataLayerSQL.csproj" />
+    <ProjectReference Include="..\DTOObjects\DTOObjects.csproj" />
+  </ItemGroup>
+
+</Project>
