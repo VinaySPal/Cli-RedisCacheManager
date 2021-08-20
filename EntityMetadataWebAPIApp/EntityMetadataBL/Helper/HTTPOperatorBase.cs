@@ -6,11 +6,9 @@ namespace EntityMetadataBL.Helper
 {
     public abstract class HTTPOperatorBase
     {
-        private HttpClient _httpClient = null;
         private HttpResponseMessage _response = null;
         public HTTPOperatorBase()
         {
-            _httpClient = CreateHttpClient();
             _response = new HttpResponseMessage();
         }
 
@@ -18,13 +16,13 @@ namespace EntityMetadataBL.Helper
 
         protected HttpResponseMessage Get(string resourceURI)
         {
-            _response = _httpClient.GetAsync(resourceURI).Result;
+            _response = CreateHttpClient().GetAsync(resourceURI).Result;
             return _response;
         }
 
         protected HttpResponseMessage Post(string resourceURI, HttpContent bodyContent)
         {
-            _response = _httpClient.PostAsync(resourceURI, bodyContent).Result;
+            _response = CreateHttpClient().PostAsync(resourceURI, bodyContent).Result;
             return _response;
         }
 
@@ -32,7 +30,7 @@ namespace EntityMetadataBL.Helper
         {
             try
             {
-                _response = _httpClient.DeleteAsync(resourceURI).Result;
+                _response = CreateHttpClient().DeleteAsync(resourceURI).Result;
             }
             catch (Exception)
             {

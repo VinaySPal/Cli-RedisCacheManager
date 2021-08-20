@@ -1,6 +1,4 @@
-﻿using CustomException;
-using DTOObjects;
-using EntityMetadataBL;
+﻿using EntityMetadataBL;
 using EntityMetadataWebAPI.Models.EntityMetadataFacadeModel;
 using EntityMetadataWebAPI.Models.UIModel;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +6,6 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Net;
-using System.Net.Http;
 
 
 namespace EntityMetadataWebAPI.Controllers

@@ -6,19 +6,31 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Net.Http;
+using Microsoft.Extensions.Configuration;
 
 namespace EntityMetadataBL
 {
     public class ExternalSourceBL : HTTPOperatorBase
     {
-        private readonly string _baseURI = "https://4f1757ef-c70b-4672-a355-b8511ffebd4c.mock.pstmn.io";
+        private readonly string _baseURI = null;
+        private readonly IConfiguration _configuration;
         private HttpClient _httpClient = null;
+        public ExternalSourceBL( IConfiguration configuration)
+        {
+            _configuration = configuration;
+            _baseURI = _configuration["External_Source_Fields_BaseURI"];
+            _httpClient = CreateHttpClient();
+        }
 
         protected override HttpClient CreateHttpClient()
         {
-            _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri(_baseURI);
+            if(_httpClient == null)
+            {
+                _httpClient = new HttpClient();
+                _httpClient.BaseAddress = new Uri(_baseURI);                
+            }
             return _httpClient;
+
         }
 
         /// <summary>
