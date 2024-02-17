@@ -1,2 +1,2 @@
-# NavTech_Task
-This repository will hold the projects and files related to NavTech Interview Process 
+# RedisCacheManager Cli Tool
+This is a Redis Cache Manager cli tool repository, which is developed in Powershell. 
